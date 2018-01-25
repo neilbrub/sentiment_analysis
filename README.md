@@ -7,5 +7,5 @@ To run: execute run.py
 To train model:
 <ul>
   <li>download labeled dataset http://thinknook.com/wp-content/uploads/2012/09/Sentiment-Analysis-Dataset.zip</li>
-  <li>run train_SA.py<li>
+  <li>run train_SA.py</li>
 </ul>
