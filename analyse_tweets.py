@@ -41,4 +41,4 @@ num_positive = 0
 for pred in preds:
     if pred == 1:
         num_positive += 1
-print("Overall sentiment: ", str((num_positive / len(preds)) * 100)[:5], "% positive")
+print("\n>>> Overall sentiment: ", str((num_positive / len(preds)) * 100)[:5], "% positive")
