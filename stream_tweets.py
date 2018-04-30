@@ -32,30 +32,37 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_data(self, raw_data):
 
-	try:
-	    data = json.loads(raw_data)
-	    print(data['text'], "\n")
+	    try:
+	        data = json.loads(raw_data)
+	        print(data['text'], "\n")
 
-	    if os.path.isfile('tweets.csv'):
-	        newfile = False
-	    else:
-	        newfile = True
+	        if os.path.isfile('tweets.csv'):
+	            newfile = False
+	        else:
+	            newfile = True
+	            self._tweets_streamed = 0
 
-	    with open('tweets.csv', 'a') as f:
-	        if newfile:
-		    f.write('tweets;;\n')
-	        f.write(data['text'])
-	        f.write(";;\n")
-	    f.close()
+	        with open('tweets.csv', 'a') as f:
+	            if newfile:
+		            f.write('tweets;;\n')
+	            f.write(data['text'])
+	            f.write(";;\n")
+	            self._tweets_streamed += 1
 
-	except KeyError, IOError: 
-	pass
+	        # Stop stream automatically:
+	        if self._tweets_streamed >= 20:
+	        	print("20 tweets collected, stream terminating...")
+	        	return False
+
+	    except KeyError, IOError: 
+	        pass
 
 
     def on_error(self, status_code):
-	if status_code == 420:
-	    #returning False in on_data disconnects the stream
-	    return False
+	    if status_code == 420:
+	        return False
+
+	self._tweets_streamed
 
 
 api = tweepy.API(authenticate())
