@@ -12,10 +12,10 @@ Connect to Twitter using Tweepy API, stream tweets into csv file
 def authenticate():
 
 	# Put auth info here (must first register app at https://apps.twitter.com/)
-    CONSUMER_KEY = "SPZBOM4LkM8Fn6V6rmIs6LfVs"
-    CONSUMER_SECRET = "Q2JYUvCNo4jq4T06K74ylPZmJfLue99wUkFI13caP8yAF13Fso"
-    ACCESS_TOKEN = "910554867550294017-tNXbE3spX13Z6LIIMFWoszBxUwIaeQA"
-    ACCESS_TOKEN_SECRET = "KGpQxUWgLMy0j0AkuC1IwhaC79Nq1uoXqwx6L3NmYLLyH"
+    CONSUMER_KEY = ""
+    CONSUMER_SECRET = ""
+    ACCESS_TOKEN = ""
+    ACCESS_TOKEN_SECRET = ""
 
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
