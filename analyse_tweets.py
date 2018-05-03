@@ -9,7 +9,7 @@ from keras.preprocessing.text import Tokenizer
 Apply trained model to predict the sentiment of tweets saved from stream_tweets
 """
 
-print("Analysing tweets...")
+print("\nRunning tweets through AI algorithm...\n")
 
 # Load tokenizer and trained model:
 with open('./tokenizer.pickle', 'rb') as f:
